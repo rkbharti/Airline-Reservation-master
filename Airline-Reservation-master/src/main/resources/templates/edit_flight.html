@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>AirLine Reservation System</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">AirLine Reservation System</a>
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/airline}">Airline Management</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<br>
+<br>
+<div class = "container">
+    <div class = "row">
+        <div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            <h1 class = "text-center"> Update your flight details </h1>
+            <div class = "card-body">
+                <form th:action="@{/airline/{id} (id=${airline.id})}" th:object = "${airline}" method="POST">
+                    <div class ="form-group">
+                        <label> First Name </label>
+                        <input
+                                type = "text"
+                                name = "firstName"
+                                th:field = "*{firstName}"
+                                class = "form-control"
+                                placeholder="Enter First Name"
+                        />
+                    </div>
+
+                    <div class ="form-group">
+                        <label> Last Name </label>
+                        <input
+                                type = "text"
+                                name = "lastName"
+                                th:field = "*{lastName}"
+                                class = "form-control"
+                                placeholder="Enter Last Name"
+                        />
+                    </div>
+
+                    <div class ="form-group">
+                        <label> Email </label>
+                        <input
+                                type = "text"
+                                name = "email"
+                                th:field = "*{email}"
+                                class = "form-control"
+                                placeholder="Enter Email"
+                        />
+                    </div>
+
+                    <div class ="form-group">
+                        <label> Gender </label>
+                        <select th:field="*{gender}">
+                            <option th:value="'Male'" th:text="Male"></option>
+                            <option th:value="'Female'" th:text="Female"></option>
+                        </select>
+                        <!-- <input
+                                 type = "text"
+                                 name = "gender"
+                                 th:field = "*{gender}"
+                                 class = "form-control"
+                                 placeholder="Enter gender"
+                         />-->
+                    </div>
+
+                    <div class ="form-group">
+                        <label> Choose Flight </label>
+                        <select th:field="*{flightName}">
+                            <option th:value="'AirIndia'" th:text="AirIndia"></option>
+                            <option th:value="'IndiGo'" th:text="IndiGo"></option>
+                            <option th:value="'SpiceJet'" th:text="SpiceJet"></option>
+                            <option th:value="'ArabEmirates'" th:text="ArabEmirates"></option>
+                        </select>
+                    </div>
+
+                    <div class ="form-group">
+                        <label> Available Seat </label>
+
+                        <select th:field="*{seatNo}">
+                            <option th:value="10" th:text="10"></option>
+                            <option th:value="11" th:text="11"></option>
+                            <option th:value="12" th:text="12"></option>
+                            <option th:value="15" th:text="15"></option>
+                            <option th:value="20" th:text="20"></option>
+                            <option th:value="21" th:text="21"></option>
+                            <option th:value="22" th:text="22"></option>
+                            <option th:value="25" th:text="25"></option>
+                            <option th:value="27" th:text="27"></option>
+                            <option th:value="29" th:text="29"></option>
+                            <option th:value="30" th:text="30"></option>
+                            <option th:value="32" th:text="32"></option>
+                            <option th:value="33" th:text="33"></option>
+                            <option th:value="35" th:text="35"></option>
+                            <option th:value="40" th:text="40"></option>
+                            <option th:value="42" th:text="42"></option>
+                        </select>
+                        <!--<input
+                                type = "text"
+                                name = "seatNo"
+                                th:field = "*{seatNo}"
+                                class = "form-control"
+                                placeholder="Enter seatNo"
+                        />-->
+                    </div>
+
+                    <div class ="form-group">
+                        <label> Booking Status </label>
+                        <select th:field="*{status}">
+                            <option th:value="'Booked'" th:text="Booked"></option>
+                        </select>
+                        <!-- <input
+                                 type = "text"
+                                 name = "status"
+                                 th:field = "*{status}"
+                                 class = "form-control"
+                                 placeholder="Enter status"
+                         />-->
+                    </div>
+                    <div class ="form-group">
+                        <label> Flight Type </label>
+                        <select th:field="*{type}">
+                            <option th:value="'National'" th:text="National"></option>
+                            <option th:value="'International'" th:text="International"></option>
+                        </select>
+                        <!-- <input
+                                 type = "text"
+                                 name = "type"
+                                 th:field = "*{type}"
+                                 class = "form-control"
+                                 placeholder="Enter type"
+                         /> -->
+                    </div>
+
+                    <div class = "box-footer">
+                        <button type="submit" class = "btn btn-primary">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
